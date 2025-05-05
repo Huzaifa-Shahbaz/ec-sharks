@@ -38,7 +38,7 @@ const DashboardBlogs = () => {
     }, [postResponse, updateResponse])
 
     useEffect(() => {
-        fetchBlogs('/blogs/userBlogs')
+        fetchBlogs('/api/blogs/userBlogs')
     }, [deleteResponse, postResponse, updateResponse])
 
     // useEffect(() => {
@@ -65,14 +65,14 @@ const DashboardBlogs = () => {
             formData.append('thumbImageUrl', blog.thumbImageUrl[0]);
         }
 
-        const response = await axios.post('http://localhost:8001/upload', formData)
+        const response = await axios.post('http://localhost:8001/api/upload', formData)
         const imagesResponse = response.data;
         const blogData = {
             ... blog,
             imageUrl: imagesResponse?.image_url,
             thumbImageUrl: imagesResponse?.thumbImage_url
         }
-        postBlog('/blogs', blogData)
+        postBlog('/api/blogs', blogData)
     }
 
     const handleUpdateBlog = async (blogDetails) => {
@@ -96,21 +96,21 @@ const DashboardBlogs = () => {
             if(blog.thumbImageUrl[0]) {
                 formData.append('thumbImageUrl', blog.thumbImageUrl[0]);
             }
-            const response = await axios.post('http://localhost:8001/upload', formData)
+            const response = await axios.post('http://localhost:8001/api/upload', formData)
             const imagesResponse = response.data;
             const updatedData = {
                 ...blog, 
                 imageUrl: imagesResponse?.image_url !== "" ? imagesResponse?.image_url : selectedBlog.imageUrl,
                 thumbImageUrl: (imagesResponse!= null && imagesResponse?.thumbImage_url !== "") ? imagesResponse?.thumbImage_url : selectedBlog?.thumbImageUrl
             }
-            updateBlog(`/blogs/${updatedData._id}`, updatedData)
+            updateBlog(`/api/blogs/${updatedData._id}`, updatedData)
         } else {
-            updateBlog(`/blogs/${blog._id}`, blog)
+            updateBlog(`/api/blogs/${blog._id}`, blog)
         }
     }
 
     const handleDeleteBlog = async (id) => {
-        deleteBlog(`/blogs/${id}`)
+        deleteBlog(`/api/blogs/${id}`)
         // if (deleteResponse?.status === 200) {
         //     setShowModal(false)
         //     toggleConfirmationModal()

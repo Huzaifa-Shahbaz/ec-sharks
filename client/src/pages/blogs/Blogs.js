@@ -8,7 +8,7 @@ const Blogs = () => {
     const { data: blogsData, loading, errorMsg: fetchingErr, getData: fetchBlogs } = useApi();
 
     useEffect(() => {
-        fetchBlogs('/blogs');
+        fetchBlogs('/api/blogs');
     }, []);
 
     return (

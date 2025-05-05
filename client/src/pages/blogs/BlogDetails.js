@@ -15,8 +15,8 @@ const BlogDetails = () => {
     const latestBlogs = blogsData?.slice(0, 3);
 
     useEffect(() => {
-        fetchBlogDetails(`/blogs/${blogId}`)
-        fetchBlogs('/blogs')
+        fetchBlogDetails(`/api/blogs/${blogId}`)
+        fetchBlogs('/api/blogs')
     }, [blogId])
 
     return (

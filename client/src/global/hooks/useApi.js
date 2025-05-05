@@ -13,7 +13,7 @@ const useApi = () => {
             let headers = {
                 'Content-Type': 'application/json',
             };
-            if (endpoint === '/blogs' || endpoint === '/login' || endpoint === '/blogs/userBlogs') {
+            if (endpoint === '/api/blogs' || endpoint === '/api/users/login' || endpoint === '/api/blogs/userBlogs') {
                 const token = localStorage.getItem("token");
                 if (token) {
                     headers['Authorization'] = `Bearer ${token}`;
