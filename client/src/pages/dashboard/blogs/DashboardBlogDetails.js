@@ -13,7 +13,7 @@ const DashboardBlogDetails = () => {
     const thumbImageSrc = blogDetails?.thumbImageUrl && blogDetails.thumbImageUrl?.startsWith('http') ? blogDetails.thumbImageUrl : NoImage
 
     useEffect(() => {
-        fetchBlogDetails(`/blogs/${blogId}`)
+        fetchBlogDetails(`/api/blogs/${blogId}`)
     }, [blogId])
 
     return (
