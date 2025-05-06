@@ -2,7 +2,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const useApi = () => {
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8001';
+    const baseUrl =
+        process.env.NODE_ENV === 'production' ?
+            '' : 'http://localhost:8001';
 
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);

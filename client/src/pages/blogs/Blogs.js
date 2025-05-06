@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import useApi from '../../global/hooks/useApi';
-import SectionHeading from '../../global/customComponents/SectionHeading';
-import BlogCard from '../../global/customComponents/BlogCard';
-import LoadingSpinner from '../../global/customComponents/LoadingSpinner';
+import SectionHeading from '../../components/SectionHeading';
+import BlogCard from '../../components/BlogCard';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Blogs = () => {
     const { data: blogsData, loading, errorMsg: fetchingErr, getData: fetchBlogs } = useApi();
